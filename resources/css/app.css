@@ -1,0 +1,222 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* contoh util opsional */
+@layer components {
+  .container-xl {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+.prose a {
+  @apply underline;
+}
+
+/* --- Komponen global --- */
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center rounded-lg px-3 py-2 bg-emerald-600 text-white hover:bg-emerald-700;
+  }
+
+  .link {
+    @apply hover:text-emerald-700;
+  }
+
+  .navlink {
+    @apply text-stone-700 hover:text-emerald-700;
+  }
+
+  .navlink.is-active {
+    @apply text-emerald-700 font-semibold;
+  }
+
+  .mnav {
+    @apply block rounded px-3 py-2 text-stone-700 hover:bg-stone-100;
+  }
+
+  .mnav.is-active {
+    @apply bg-stone-100 font-semibold text-emerald-700;
+  }
+}
+
+/* --- Optional: tipografi ringan untuk konten HTML (tanpa plugin typography) --- */
+@layer base {
+  .content h1 {
+    @apply text-3xl md:text-4xl font-bold mb-4;
+  }
+
+  .content h2 {
+    @apply text-2xl md:text-3xl font-semibold mt-8 mb-3;
+  }
+
+  .content h3 {
+    @apply text-xl md:text-2xl font-semibold mt-6 mb-2;
+  }
+
+  .content p {
+    @apply leading-relaxed my-4;
+  }
+
+  .content ul {
+    @apply list-disc ps-6 my-4;
+  }
+
+  .content ol {
+    @apply list-decimal ps-6 my-4;
+  }
+
+  .content a {
+    @apply text-emerald-700 underline underline-offset-2;
+  }
+
+  .content img {
+    @apply rounded-lg;
+  }
+}
+
+/* Container util biar konsisten */
+.container-7 {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Nav */
+.navlink {
+  @apply text-stone-700 hover:text-emerald-700;
+}
+
+.navlink.is-active {
+  @apply text-emerald-700 font-semibold;
+}
+
+.mnav {
+  @apply block rounded px-3 py-2 text-stone-700 hover:bg-stone-100;
+}
+
+.mnav.is-active {
+  @apply bg-stone-100 font-semibold text-emerald-700;
+}
+
+/* Buttons */
+.btn-primary {
+  @apply inline-flex items-center rounded-xl px-5 py-3 font-medium bg-emerald-600 text-white hover:bg-emerald-700 shadow-lg shadow-emerald-900/20;
+}
+
+.btn-ghost {
+  @apply inline-flex items-center rounded-xl px-5 py-3 font-medium text-white ring-1 ring-white/50 bg-white/15 hover:bg-white/25;
+}
+
+/* Cards & section titles */
+.section-title {
+  @apply text-2xl font-bold text-stone-900;
+}
+
+.card {
+  @apply bg-white rounded-xl shadow-sm ring-1 ring-black/5;
+}
+
+.card img {
+  display: block;
+}
+
+/* Misc */
+.badge {
+  @apply inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-600 text-white;
+}
+
+.link-more {
+  @apply text-emerald-700 hover:text-emerald-800 font-medium;
+}
+
+/* === HOME hero ======================================== */
+#home-hero {
+  /* nilai url() disuntikkan lewat custom property --hero di elemen */
+  background-image: var(--hero);
+  background-size: cover;
+  background-position: center;
+}
+
+/* === Brand palette ========================================== */
+:root {
+  --brand-900: #0a5c49;
+  /* hijau tua */
+  --brand-700: #0f7a61;
+  --brand-500: #16a085;
+  /* hijau medium (tone footer) */
+}
+
+/* Header gradient sama seperti footer */
+.header-gradient {
+  background: linear-gradient(180deg, var(--brand-900) 0%, var(--brand-700) 60%, var(--brand-500) 100%);
+}
+
+/* Link di header (warna terang) */
+.header-link {
+  color: #eafaf4;
+}
+
+.header-link:hover {
+  color: #ffffff;
+  opacity: .95;
+}
+
+.header-link.is-active {
+  color: #ffffff;
+  font-weight: 600;
+  text-shadow: 0 0 1px rgba(0, 0, 0, .12);
+}
+
+/* Tombol CTA di header */
+.header-cta {
+  background: #16a34a;
+  color: #fff;
+  border-radius: 12px;
+  padding: .5rem 1rem;
+}
+
+.header-cta:hover {
+  filter: brightness(1.03);
+}
+
+/* Kartu / gambar dengan rasio stabil supaya tidak “melar” */
+.card {
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(2, 33, 25, .06);
+}
+
+.card-img {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 14px;
+  aspect-ratio: 16/9;
+  /* kunci proporsi */
+}
+
+.card-img>img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Section background halus seperti referensi */
+.section-soft {
+  background: linear-gradient(180deg, #fcfffe 0%, #f4fbf7 100%);
+}
+
+/* Footer tetap */
+.footer-gradient {
+  background: linear-gradient(180deg, var(--brand-700) 0%, var(--brand-500) 100%);
+  color: #eafaf4;
+}
+
+.footer-gradient a {
+  color: #eafaf4;
+}
+
+.footer-gradient a:hover {
+  text-decoration: underline;
+  color: #fff;
+}
