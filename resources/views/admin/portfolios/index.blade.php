@@ -32,8 +32,8 @@
       <td>{{ $p->description }}</td>
       <td>
         @if($p->image)
-        <img src="{{ asset('storage/'.$p->image) }}" alt="" class="img-fluid" style="max-height:80px">
-        @else
+        <img src="{{ asset($p->image) }}" alt="" class="img-fluid" style="max-height:80px">
+        @endif
         —
         @endif
       </td>
