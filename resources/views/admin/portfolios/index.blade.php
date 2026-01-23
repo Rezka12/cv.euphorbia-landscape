@@ -35,7 +35,6 @@
         <img src="{{ asset($p->image) }}" alt="" class="img-fluid" style="max-height:80px">
         @endif
         —
-        @endif
       </td>
       <td>
         @forelse($p->categories as $c)
