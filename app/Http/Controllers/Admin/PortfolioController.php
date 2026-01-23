@@ -56,10 +56,23 @@ class PortfolioController extends Controller
             ]);
 
             // upload cover
-            if ($request->hasFile('image')) {
-                $portfolio->image = $request->file('image')->store('portfolios', 'public');
-                $portfolio->save();
-            }
+           // upload cover (AMAN DI RAILWAY)
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+
+            // pastikan folder ada
+            $destination = public_path('uploads/portfolios');
+        if (!file_exists($destination)) {
+            mkdir($destination, 0755, true);
+        }
+
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move($destination, $filename);
+
+            $portfolio->image = 'uploads/portfolios/' . $filename;
+            $portfolio->save();
+        }
+
 
             // ✅ SYNC KATEGORI
             $portfolio->categories()->sync($request->input('categories', []));
